@@ -333,6 +333,19 @@
         display: flex;
     }
 }
+     /* Mobile adjustments for contact navigation */
+@media (max-width: 768px) {
+    .contact-nav {
+        padding: 8px 0;
+        font-size: 0.8rem;
+    }
+
+    .contact-nav-link {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        gap: 5px;
+    }
+}
 
         
 
@@ -1421,6 +1434,26 @@
                 currentSection = sectionId;
             }
         });
+        // Hide/show contact navigation on scroll
+let lastScroll = 0;
+const contactNav = document.querySelector('.contact-nav');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scrolling down — hide nav
+        contactNav.style.transform = 'translateY(-100%)';
+        contactNav.style.transition = 'transform 0.3s ease';
+    } else {
+        // Scrolling up — show nav
+        contactNav.style.transform = 'translateY(0)';
+        contactNav.style.transition = 'transform 0.3s ease';
+    }
+
+    lastScroll = currentScroll;
+});
+
         
         contactNavLinks.forEach(link => {
             link.classList.remove('active');
