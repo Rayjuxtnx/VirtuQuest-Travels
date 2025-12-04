@@ -1896,37 +1896,49 @@ window.addEventListener('scroll', () => {
             // In a real implementation, this would trigger a PDF download
         }
 
-        // Form Submission
-        document.getElementById('corporateInquiryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('corporateName').value,
-                title: document.getElementById('corporateTitle').value,
-                company: document.getElementById('corporateCompany').value,
-                email: document.getElementById('corporateEmail').value,
-                phone: document.getElementById('corporatePhone').value,
-                groupSize: document.getElementById('corporateGroupSize').value,
-                package: document.getElementById('corporatePackage').value,
-                message: document.getElementById('corporateMessage').value
-            };
-            
-            // In a real implementation, you would send this data to a server
-            // For now, we'll show an alert and close the modal
-            alert('Thank you for your corporate inquiry! Our dedicated team will contact you within 24 hours to discuss your requirements.');
-            closeInquiryModal();
-            
-            // Reset form
-            document.getElementById('corporateInquiryForm').reset();
-        });
+        // Corporate Inquiry Form Submission
+document.getElementById('corporateInquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-        // Close modal when clicking outside
-        document.getElementById('corporateInquiryModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeInquiryModal();
-            }
-        });
+    // Collect form data
+    const formData = {
+        name: document.getElementById('corporateName').value,
+        title: document.getElementById('corporateTitle').value,
+        company: document.getElementById('corporateCompany').value,
+        email: document.getElementById('corporateEmail').value,
+        phone: document.getElementById('corporatePhone').value,
+        groupSize: document.getElementById('corporateGroupSize').value,
+        package: document.getElementById('corporatePackage').value,
+        message: document.getElementById('corporateMessage').value
+    };
+
+    // Send data to Formspree
+    fetch('https://formspree.io/f/myzrpyka', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Thank you! Your corporate inquiry has been sent. Our team will contact you within 24 hours.');
+            closeInquiryModal(); // close modal after submission
+            document.getElementById('corporateInquiryForm').reset(); // reset form
+        } else {
+            alert('Oops! Something went wrong. Please try again.');
+        }
+    })
+    .catch(error => {
+        alert('Error sending form: ' + error);
+    });
+});
+
+// Close modal when clicking outside
+document.getElementById('corporateInquiryModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeInquiryModal();
+    }
+});
+
 
         // Mobile menu toggle & active link handling
         (function() {
