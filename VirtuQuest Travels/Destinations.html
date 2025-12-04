@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations Explore East Africa With VirtuQuest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --sand: #f7f3e9;
+            --sand-dark: #e8d8b6;
+            --turquoise: #1ca9c9;
+            --turquoise-dark: #0e8ea8;
+            --ocean-blue: #2a6b8a;
+            --sunshine: #ffb347;
+            --savannah: #b68d40;
+            --safari-brown: #8b4513;
+            --palm-green: #2d5a27;
+            --text-dark: #333;
+            --text-light: #555;
+            --luxury-gold: #d4af37;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--sand);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--ocean-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(28, 169, 201, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(28, 169, 201, 0.3);
+            background: linear-gradient(to right, var(--savannah), var(--turquoise-dark));
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--ocean-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--sunshine);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--turquoise);
+        }
+
+        nav ul li a.active {
+            color: var(--turquoise);
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        /* Intro Hero Section */
+        .destinations-hero {
+            height: 70vh;
+            background: linear-gradient(rgba(42, 107, 138, 0.7), rgba(182, 141, 64, 0.6)), 
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .destinations-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23f7f3e9"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-divider {
+            font-size: 2.5rem;
+            color: var(--sunshine);
+            margin: 30px 0;
+        }
+
+        /* Floating Quick Navigation */
+        .quick-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            padding: 20px 10px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quick-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 10px 5px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            width: 70px;
+            text-align: center;
+        }
+
+        .quick-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--turquoise);
+        }
+
+        .quick-nav a:hover, .quick-nav a.active {
+            background-color: rgba(28, 169, 201, 0.1);
+            color: var(--turquoise-dark);
+        }
+
+        .quick-nav a span {
+            margin-top: 5px;
+        }
+         /* Hamburger button for mobile */
+.menu-btn {
+    display: none; /* hidden on large screens */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 1024px) {
+    .menu-btn {
+        display: block;
+    }
+
+    /* Hide regular nav links initially on mobile */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        background: white;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        z-index: 999;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+        /* Top Experiences Strip */
+        .experiences-strip {
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            padding: 25px 0;
+            margin-top: -1px;
+        }
+
+        .experiences-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .experience-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .experience-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--sunshine);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .experience-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Destination Sections */
+        .destinations-list {
+            background-color: white;
+        }
+
+        .destination-section {
+            margin-bottom: 100px;
+            scroll-margin-top: 120px;
+        }
+
+        .destination-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .destination-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-title {
+            font-size: 2.2rem;
+            color: var(--ocean-blue);
+            position: relative;
+            display: inline-block;
+        }
+
+        .destination-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+            bottom: -10px;
+            left: 0;
+        }
+
+        .destination-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .destination-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* Image Slider */
+        .image-slider-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: white;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--ocean-blue);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background-color: white;
+        }
+
+        .slider-arrow.prev {
+            left: 15px;
+        }
+
+        .slider-arrow.next {
+            right: 15px;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--sand);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .info-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .info-item h4 {
+            color: var(--ocean-blue);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item p {
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .info-item i {
+            color: var(--turquoise);
+        }
+
+        /* Travel Tips Box */
+        .travel-tips {
+            background: linear-gradient(135deg, var(--sand) 0%, #e6f7ff 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 80px;
+            border-left: 5px solid var(--turquoise);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .travel-tips h3 {
+            color: var(--ocean-blue);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .travel-tips h3 i {
+            color: var(--sunshine);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-item h4 {
+            color: var(--savannah);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--sand);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "\201C";
+            font-size: 4rem;
+            color: var(--turquoise);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--ocean-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .testimonial-location {
+            color: var(--savannah);
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(42, 107, 138, 0.85), rgba(182, 141, 64, 0.8)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" opacity=".1" fill="%23ffffff"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ocean-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--sunshine);
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--sunshine);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .destination-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .quick-nav {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .destinations-hero {
+                height: 60vh;
+                margin-top: 70px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .destination-title {
+                font-size: 1.8rem;
+            }
+            
+            .experiences-container {
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .experience-item {
+                min-width: 120px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-sun"></i>
+                VirtuQuest Travels
+            </div>
+            <nav>
+                <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="themed-holidays.html">Themed Holidays</a></li>
+                    <li><a href="corporate-holidays.html">Corporate Holidays</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Quick Navigation -->
+    <div class="quick-nav">
+        <a href="#mombasa" class="active">
+            <i class="fas fa-umbrella-beach"></i>
+            <span>Mombasa</span>
+        </a>
+        <a href="#nairobi">
+            <i class="fas fa-city"></i>
+            <span>Nairobi</span>
+        </a>
+        <a href="#zanzibar">
+            <i class="fas fa-water"></i>
+            <span>Zanzibar</span>
+        </a>
+        <a href="#masai-mara">
+            <i class="fas fa-paw"></i>
+            <span>Maasai Mara</span>
+        </a>
+        <a href="#serengeti">
+            <i class="fas fa-mountain"></i>
+            <span>Serengeti</span>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="destinations-hero">
+        <div class="container hero-content">
+            <h1>DESTINATIONS  Explore East Africa With VirtuQuest</h1>
+            <div class="hero-divider">
+                <i class="fas fa-compass"></i>
+            </div>
+            <p>Our curated destinations offer a blend of adventure, relaxation, culture, and natural beauty. Each location is carefully selected to give you an unforgettable experience.</p>
+        </div>
+    </section>
+
+    <!-- Top Experiences Strip -->
+    <section class="experiences-strip">
+        <div class="container experiences-container">
+            <div class="experience-item">
+                <div class="experience-icon">
+                    <i class="fas fa-umbrella-beach"></i>
+                </div>
+                <h3>Beach Relaxation</h3>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Game Drives</h3>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>Cultural Tours</h3>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">
+                    <i class="fas fa-fish"></i>
+                </div>
+                <h3>Marine Adventures</h3>
+            </div>
+            <div class="experience-item">
+                <div class="experience-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3>Luxury Getaways</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations List -->
+    <section class="destinations-list">
+        <div class="container">
+            <!-- Mombasa -->
+            <div class="destination-section" id="mombasa">
+                <div class="destination-header">
+                    <h2 class="destination-title">Mombasa</h2>
+                </div>
+                <div class="destination-content">
+                    <div class="destination-text">
+                        <p class="destination-description">Enjoy pristine beaches, rich Swahili culture, historical landmarks, and world-class resorts. Perfect for leisure, romance, and family vacations.</p>
+                        
+                        <div class="info-bar">
+                            <div class="info-item">
+                                <h4>Best Time to Visit</h4>
+                                <p><i class="fas fa-calendar-alt"></i> June - October</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Experience Type</h4>
+                                <p><i class="fas fa-tag"></i> Beach | Culture | Luxury</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Ideal For</h4>
+                                <p><i class="fas fa-users"></i> Families, Couples</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="image-slider-container">
+                        <div class="image-slider" id="mombasa-slider">
+                            <div class="slide" style="background-image: url('images/mombasa2.jpg');"></div>
+                            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');"></div>
+                        </div>
+                        <div class="slider-arrow prev" onclick="changeSlide('mombasa', -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="slider-arrow next" onclick="changeSlide('mombasa', 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="slider-controls">
+                            <div class="slider-dot active" onclick="goToSlide('mombasa', 0)"></div>
+                            <div class="slider-dot" onclick="goToSlide('mombasa', 1)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nairobi -->
+            <div class="destination-section" id="nairobi">
+                <div class="destination-header">
+                    <h2 class="destination-title">Nairobi</h2>
+                </div>
+                <div class="destination-content">
+                    <div class="image-slider-container">
+                        <div class="image-slider" id="nairobi-slider">
+                            <div class="slide" style="background-image: url('images/nairobi3.jfif');"></div>
+                            <div class="slide" style="background-image: url('images/nairobi4.jpg');"></div>
+                        </div>
+                        <div class="slider-arrow prev" onclick="changeSlide('nairobi', -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="slider-arrow next" onclick="changeSlide('nairobi', 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="slider-controls">
+                            <div class="slider-dot active" onclick="goToSlide('nairobi', 0)"></div>
+                            <div class="slider-dot" onclick="goToSlide('nairobi', 1)"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-text">
+                        <p class="destination-description">A lively urban hub combining modern city life with wildlife adventures. Ideal for business travelers, quick getaways, and cultural exploration.</p>
+                        
+                        <div class="info-bar">
+                            <div class="info-item">
+                                <h4>Best Time to Visit</h4>
+                                <p><i class="fas fa-calendar-alt"></i> All Year Round</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Experience Type</h4>
+                                <p><i class="fas fa-tag"></i> Urban | Safari | Culture</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Ideal For</h4>
+                                <p><i class="fas fa-users"></i> Corporate, Solo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zanzibar -->
+            <div class="destination-section" id="zanzibar">
+                <div class="destination-header">
+                    <h2 class="destination-title">Zanzibar</h2>
+                </div>
+                <div class="destination-content">
+                    <div class="destination-text">
+                        <p class="destination-description">A tropical paradise known for turquoise waters, spice tours, and stunning island vibes. Romantic escapes, cultural immersion, and luxury stays await.</p>
+                        
+                        <div class="info-bar">
+                            <div class="info-item">
+                                <h4>Best Time to Visit</h4>
+                                <p><i class="fas fa-calendar-alt"></i> June - October</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Experience Type</h4>
+                                <p><i class="fas fa-tag"></i> Beach | Culture | Romance</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Ideal For</h4>
+                                <p><i class="fas fa-users"></i> Couples, Honeymooners</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="image-slider-container">
+                        <div class="image-slider" id="zanzibar-slider">
+                            <div class="slide" style="background-image: url('images/zanzibar2.jpg');"></div>
+                            <div class="slide" style="background-image: url('images/zanzibar3.avif');"></div>
+                        </div>
+                        <div class="slider-arrow prev" onclick="changeSlide('zanzibar', -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="slider-arrow next" onclick="changeSlide('zanzibar', 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="slider-controls">
+                            <div class="slider-dot active" onclick="goToSlide('zanzibar', 0)"></div>
+                            <div class="slider-dot" onclick="goToSlide('zanzibar', 1)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maasai Mara -->
+            <div class="destination-section" id="masai-mara">
+                <div class="destination-header">
+                    <h2 class="destination-title">Maasai Mara</h2>
+                </div>
+                <div class="destination-content">
+                    <div class="image-slider-container">
+                        <div class="image-slider" id="masai-mara-slider">
+                            <div class="slide" style="background-image: url('images/mara2.jfif');"></div>
+                            <div class="slide" style="background-image: url('images/mara3.jfif');"></div>
+                        </div>
+                        <div class="slider-arrow prev" onclick="changeSlide('masai-mara', -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="slider-arrow next" onclick="changeSlide('masai-mara', 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="slider-controls">
+                            <div class="slider-dot active" onclick="goToSlide('masai-mara', 0)"></div>
+                            <div class="slider-dot" onclick="goToSlide('masai-mara', 1)"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-text">
+                        <p class="destination-description">Home to the Great Migration and rich wildlife. A must-visit for safari lovers seeking extraordinary encounters with nature.</p>
+                        
+                        <div class="info-bar">
+                            <div class="info-item">
+                                <h4>Best Time to Visit</h4>
+                                <p><i class="fas fa-calendar-alt"></i> July - October</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Experience Type</h4>
+                                <p><i class="fas fa-tag"></i> Safari | Wildlife | Adventure</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Ideal For</h4>
+                                <p><i class="fas fa-users"></i> Families, Adventure Seekers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serengeti -->
+            <div class="destination-section" id="serengeti">
+                <div class="destination-header">
+                    <h2 class="destination-title">Serengeti</h2>
+                </div>
+                <div class="destination-content">
+                    <div class="destination-text">
+                        <p class="destination-description">One of the world's most iconic wildlife reserves. Experience vast landscapes, thrilling game drives, and breathtaking safari adventures.</p>
+                        
+                        <div class="info-bar">
+                            <div class="info-item">
+                                <h4>Best Time to Visit</h4>
+                                <p><i class="fas fa-calendar-alt"></i> June - October</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Experience Type</h4>
+                                <p><i class="fas fa-tag"></i> Safari | Wildlife | Luxury</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Ideal For</h4>
+                                <p><i class="fas fa-users"></i> Photographers, Safari Enthusiasts</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="image-slider-container">
+                        <div class="image-slider" id="serengeti-slider">
+                            <div class="slide" style="background-image: url('images/serengeti2.jfif');"></div>
+                            <div class="slide" style="background-image: url('images/serengeti3.jfif');"></div>
+                        </div>
+                        <div class="slider-arrow prev" onclick="changeSlide('serengeti', -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="slider-arrow next" onclick="changeSlide('serengeti', 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        <div class="slider-controls">
+                            <div class="slider-dot active" onclick="goToSlide('serengeti', 0)"></div>
+                            <div class="slider-dot" onclick="goToSlide('serengeti', 1)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Tips -->
+    <section>
+        <div class="container">
+            <div class="travel-tips">
+                <h3><i class="fas fa-lightbulb"></i> Travel Tips & Essentials</h3>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <h4><i class="fas fa-suitcase"></i> What to Pack</h4>
+                        <p>Light clothing for coastal areas, warm layers for safari mornings, comfortable walking shoes, sunscreen, hat, binoculars for wildlife viewing, and swimwear.</p>
+                    </div>
+                    <div class="tip-item">
+                        <h4><i class="fas fa-cloud-sun"></i> Weather Expectations</h4>
+                        <p>Coastal areas: Warm and humid year-round. Safari regions: Warm days, cool nights. Dry season (June-Oct) is best for wildlife viewing.</p>
+                    </div>
+                    <div class="tip-item">
+                        <h4><i class="fas fa-passport"></i> Visa & Requirements</h4>
+                        <p>Check visa requirements for Kenya and Tanzania. Ensure your passport is valid for at least 6 months. Vaccinations may be required for certain areas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Traveler Experiences</h2>
+                <p>See what our guests say about their East African adventures</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Our Maasai Mara safari with VirtuQuest was absolutely breathtaking. We saw the Great Migration up close and our guide was incredibly knowledgeable. An unforgettable adventure!"</p>
+                    <div class="testimonial-author">
+                        Michael & Sarah Johnson
+                        <span class="testimonial-location">- Maasai Mara</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Zanzibar was paradise! The turquoise waters, spice tours, and luxury beach resort arranged by VirtuQuest made our honeymoon perfect. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        David & Emma Chen
+                        <span class="testimonial-location">- Zanzibar</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The blend of Mombasa's beaches and Nairobi's urban safari was perfectly planned. VirtuQuest created a seamless journey that showed us the best of both worlds."</p>
+                    <div class="testimonial-author">
+                        Robert Williams
+                        <span class="testimonial-location">- Mombasa & Nairobi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready for Your East African Adventure?</h2>
+            <p>Start planning your journey with VirtuQuest Travels today. Every trip is a story waiting to be told.</p>
+            <a href="contact.html" class="btn">Start Planning Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VirtuQuest Travels</h3>
+                    <p>Turning travel dreams into unforgettable coastal and safari adventures across East Africa.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="#">Destinations</a>
+                    <a href="#">Packages</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Coastal Plaza, Mombasa, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@virtuquesttravels.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 VirtuQuest Travels. All rights reserved. | Crafted with <i class="fas fa-heart" style="color:#ffb347;"></i> for travelers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality for each destination
+        const sliders = {
+            'mombasa': { currentIndex: 0, totalSlides: 2 },
+            'nairobi': { currentIndex: 0, totalSlides: 2 },
+            'zanzibar': { currentIndex: 0, totalSlides: 2 },
+            'masai-mara': { currentIndex: 0, totalSlides: 2 },
+            'serengeti': { currentIndex: 0, totalSlides: 2 }
+        };
+
+        function changeSlide(destination, direction) {
+            const slider = sliders[destination];
+            slider.currentIndex += direction;
+            
+            if (slider.currentIndex < 0) {
+                slider.currentIndex = slider.totalSlides - 1;
+            } else if (slider.currentIndex >= slider.totalSlides) {
+                slider.currentIndex = 0;
+            }
+            
+            updateSlider(destination);
+        }
+
+        function goToSlide(destination, index) {
+            const slider = sliders[destination];
+            slider.currentIndex = index;
+            updateSlider(destination);
+        }
+
+        function updateSlider(destination) {
+            const slider = sliders[destination];
+            const sliderElement = document.getElementById(`${destination}-slider`);
+            const dots = document.querySelectorAll(`#${destination} .slider-dot`);
+            
+            // Move the slider
+            sliderElement.style.transform = `translateX(-${slider.currentIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === slider.currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Quick navigation highlighting
+        function updateQuickNav() {
+            const sections = document.querySelectorAll('.destination-section');
+            const quickNavLinks = document.querySelectorAll('.quick-nav a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 150) && window.scrollY < (sectionTop + sectionHeight - 150)) {
+                    currentSection = section.id;
+                }
+            });
+            
+            quickNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.padding = '20px 0';
+            }
+            
+            // Update quick navigation highlighting
+            updateQuickNav();
+        });
+
+        // Auto-advance sliders
+        setInterval(() => {
+            for (const destination in sliders) {
+                changeSlide(destination, 1);
+            }
+        }, 5000);
+
+        // Mobile menu toggle & active link handling (shared behavior)
+        (function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navList = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            if (menuBtn && navList) {
+                menuBtn.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    navList.classList.toggle('show');
+                });
+
+                navLinks.forEach(a => a.addEventListener('click', function() {
+                    if (navList.classList.contains('show')) {
+                        navList.classList.remove('show');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }));
+            }
+
+            // Mark active link based on current page
+            const current = location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(a => {
+                const href = a.getAttribute('href');
+                if (href === current || (href === 'index.html' && current === '')) {
+                    a.classList.add('active');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

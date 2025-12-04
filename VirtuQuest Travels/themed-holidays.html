@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THEMED HOLIDAYS Unique Holidays Tailored to Your Interests | VirtuQuest Travels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+    <style>
+        /* CSS Variables - Consistent with previous pages */
+        :root {
+            --sand: #f7f3e9;
+            --sand-dark: #e8d8b6;
+            --turquoise: #1ca9c9;
+            --turquoise-dark: #0e8ea8;
+            --ocean-blue: #2a6b8a;
+            --sunshine: #ffb347;
+            --savannah: #b68d40;
+            --safari-brown: #8b4513;
+            --palm-green: #2d5a27;
+            --text-dark: #333;
+            --text-light: #555;
+            --luxury-gold: #d4af37;
+            --romance-pink: #e8a2a9;
+            --wellness-green: #88c9a1;
+            --adventure-orange: #f4a261;
+            --culture-purple: #9a86a4;
+            
+            --header-height: 80px;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--sand);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(28, 169, 201, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--savannah), var(--turquoise-dark));
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(28, 169, 201, 0.3);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--ocean-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--sunshine);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        /* Navigation styles - UPDATED to match HTML structure */
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--ocean-blue);
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color var(--transition-speed);
+            position: relative;
+        }
+
+        .nav-links li a:hover {
+            color: var(--turquoise);
+        }
+
+        .nav-links li a.active {
+            color: var(--turquoise);
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .themed-hero {
+            height: 80vh;
+            background: linear-gradient(135deg, rgba(42, 107, 138, 0.85) 0%, rgba(182, 141, 64, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1564594736624-def7a10ab047?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-top: var(--header-height);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .themed-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23f7f3e9"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            animation: slideUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Theme Navigation */
+        .theme-nav {
+            position: sticky;
+            top: var(--header-height);
+            z-index: 999;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(247, 243, 233, 0.95));
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .theme-nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .theme-nav-link {
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 50px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-nav-link:hover, .theme-nav-link.active {
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(28, 169, 201, 0.2);
+        }
+        
+
+        /* Themed Holiday Sections */
+        .theme-section {
+            padding: 100px 0;
+            position: relative;
+            scroll-margin-top: calc(var(--header-height) + 80px);
+        }
+
+        .theme-section:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .section-divider {
+            position: absolute;
+            width: 100%;
+            height: 60px;
+            bottom: -30px;
+            left: 0;
+            z-index: 5;
+        }
+
+        .section-divider.wave {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23ffffff" opacity="0.7"/></svg>');
+            background-size: cover;
+        }
+
+        .section-divider.safari {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23b68d40"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23b68d40"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23b68d40"/></svg>');
+            background-size: cover;
+        }
+
+        .theme-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .theme-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--ocean-blue);
+        }
+
+        .theme-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .theme-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Image Slider */
+        .theme-slider-container {
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .theme-slider-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-slider {
+            height: 100%;
+            position: relative;
+        }
+
+        .theme-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            border-radius: 15px;
+        }
+
+        .theme-slide.active {
+            opacity: 1;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .slider-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--ocean-blue);
+            font-size: 1.2rem;
+            transition: all var(--transition-speed) ease;
+            z-index: 10;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-arrow:hover {
+            background-color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        /* Theme Description */
+        .theme-description {
+            padding: 20px;
+        }
+
+        .theme-description h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--safari-brown);
+        }
+
+        .theme-description p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .theme-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .theme-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+        }
+
+        .theme-feature i {
+            color: var(--turquoise);
+        }
+
+        /* Closing Statement */
+        .closing-statement {
+            text-align: center;
+            padding: 60px 0;
+            background-color: white;
+            margin-top: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .closing-statement p {
+            font-size: 1.4rem;
+            color: var(--ocean-blue);
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background-color: var(--sand);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M11,18c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S14.9,18,11,18z M11,6c-2.8,0-5,2.2-5,5s2.2,5,5,5s5-2.2,5-5S13.8,6,11,6z M89,18c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S92.9,18,89,18z M89,6c-2.8,0-5,2.2-5,5s2.2,5,5,5s5-2.2,5-5S91.8,6,89,6z" fill="%23e8d8b6" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--ocean-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .testimonials-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 50px;
+            background-color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--ocean-blue);
+            font-size: 1.1rem;
+        }
+
+        .author-theme {
+            color: var(--savannah);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--sand-dark);
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--turquoise);
+            transform: scale(1.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(42, 107, 138, 0.9) 0%, rgba(182, 141, 64, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Quick Inquiry Button */
+        .inquiry-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(28, 169, 201, 0.3);
+            z-index: 999;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .inquiry-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(28, 169, 201, 0.4);
+        }
+        /* Fix modal size on all devices */
+          .modal-overlay {
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+}
+
+         .modal-content {
+         max-height: 85vh;       /* prevents the modal from becoming too tall */
+         overflow-y: auto;       /* allows scrolling inside the modal */
+}
+
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .modal-close:hover {
+            color: var(--turquoise);
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: var(--ocean-blue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color var(--transition-speed) ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--turquoise);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ocean-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--sunshine);
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-column a:hover {
+            color: var(--sunshine);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design - UPDATED mobile menu */
+        @media (max-width: 992px) {
+            .theme-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .theme-slider-container {
+                height: 350px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .theme-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .themed-hero {
+                height: 70vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .theme-section {
+                padding: 70px 0;
+            }
+            
+            .theme-nav-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .theme-features {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Mobile menu styles */
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                margin-left: 0;
+            }
+            
+            .nav-links li a {
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .nav-links li a.active::after {
+                display: none;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .theme-slider-container {
+                height: 300px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .testimonial-slide {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-sun"></i>
+                VirtuQuest Travels
+            </a>
+           <nav>
+                <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="themed-holidays.html" class="active">Themed Holidays</a></li>
+                    <li><a href="corporate-holidays.html">Corporate Holidays</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="themed-hero">
+        <div class="container hero-content">
+            <h1>THEMED HOLIDAYS:Unique Holidays Tailored to Your Interests</h1>
+            <p>VirtuQuest Travels offers special holiday experiences crafted around specific themes to make your journey exciting and memorable.</p>
+            <a href="#cta" class="btn">Explore Themes</a>
+        </div>
+    </section>
+
+    <!-- Theme Navigation -->
+    <div class="theme-nav">
+        <div class="container theme-nav-container">
+            <a href="#romantic" class="theme-nav-link active">
+                <i class="fas fa-heart"></i>
+                Romantic Getaways
+            </a>
+            <a href="#adventure" class="theme-nav-link">
+                <i class="fas fa-mountain"></i>
+                Adventure Tours
+            </a>
+            <a href="#cultural" class="theme-nav-link">
+                <i class="fas fa-book-open"></i>
+                Cultural & Historical
+            </a>
+            <a href="#wellness" class="theme-nav-link">
+                <i class="fas fa-spa"></i>
+                Wellness Retreats
+            </a>
+            <a href="#luxury" class="theme-nav-link">
+                <i class="fas fa-gem"></i>
+                Luxury Escapes
+            </a>
+        </div>
+    </div>
+
+    <!-- Romantic Getaways Section -->
+    <section id="romantic" class="theme-section">
+        <div class="container">
+            <div class="theme-header">
+                <div class="theme-icon" style="background: linear-gradient(to right, var(--romance-pink), var(--sunshine));">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2>Romantic Getaways</h2>
+                <p>Honeymoons and couple retreats in scenic destinations.</p>
+            </div>
+            
+            <div class="theme-content">
+                <div class="theme-slider-container">
+                    <div class="theme-slider" id="romantic-slider">
+                        <div class="theme-slide active" style="background-image: url('images/rom1.jpg');"></div>
+                        <div class="theme-slide" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    </div>
+                    <div class="slider-arrow prev" onclick="changeSlide('romantic', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="slider-arrow next" onclick="changeSlide('romantic', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-dot active" onclick="goToSlide('romantic', 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide('romantic', 1)"></div>
+                    </div>
+                </div>
+                
+                <div class="theme-description">
+                    <h3>Create Unforgettable Memories Together</h3>
+                    <p>From secluded beachfront villas in Zanzibar to luxury safari lodges with private plunge pools in the Maasai Mara, our romantic getaways are designed to create magical moments for couples. Enjoy candlelit dinners on the beach, private sunset cruises, and couples' spa treatments in breathtaking settings.</p>
+                    
+                    <div class="theme-features">
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Private beach dinners</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Luxury couple accommodations</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Romantic sunset experiences</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized honeymoon packages</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#inquiry" class="btn" onclick="openInquiryModal('Romantic Getaways')">
+                        <i class="fas fa-heart"></i>
+                        Plan Your Romantic Escape
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider wave"></div>
+    </section>
+
+    <!-- Adventure Tours Section -->
+    <section id="adventure" class="theme-section">
+        <div class="container">
+            <div class="theme-header">
+                <div class="theme-icon" style="background: linear-gradient(to right, var(--adventure-orange), var(--savannah));">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <h2>Adventure Tours</h2>
+                <p>For thrill-seekers — safaris, hiking, marine sports, and more.</p>
+            </div>
+            
+            <div class="theme-content">
+                <div class="theme-description">
+                    <h3>Embrace the Thrill of East Africa</h3>
+                    <p>From climbing Mount Kilimanjaro to diving with whale sharks off the coast of Tanzania, our adventure tours are designed for those who seek excitement and challenge. Experience the adrenaline rush of a hot air balloon safari over the Serengeti or the thrill of white-water rafting on the Nile River.</p>
+                    
+                    <div class="theme-features">
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Guided mountain climbs</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Wildlife tracking safaris</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Marine adventure sports</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Extreme photography expeditions</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#inquiry" class="btn" onclick="openInquiryModal('Adventure Tours')">
+                        <i class="fas fa-compass"></i>
+                        Start Your Adventure
+                    </a>
+                </div>
+                
+                <div class="theme-slider-container">
+                    <div class="theme-slider" id="adventure-slider">
+                        <div class="theme-slide active" style="background-image: url('images/Adventure1.jpeg');"></div>
+                        <div class="theme-slide" style="background-image: url('images/adventure3.jpeg');"></div>
+                    </div>
+                    <div class="slider-arrow prev" onclick="changeSlide('adventure', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="slider-arrow next" onclick="changeSlide('adventure', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-dot active" onclick="goToSlide('adventure', 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide('adventure', 1)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider safari"></div>
+    </section>
+
+    <!-- Cultural & Historical Tours Section -->
+    <section id="cultural" class="theme-section">
+        <div class="container">
+            <div class="theme-header">
+                <div class="theme-icon" style="background: linear-gradient(to right, var(--culture-purple), var(--ocean-blue));">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h2>Cultural & Historical Tours</h2>
+                <p>Dive into local traditions, food, music, and heritage.</p>
+            </div>
+            
+            <div class="theme-content">
+                <div class="theme-slider-container">
+                    <div class="theme-slider" id="cultural-slider">
+                        <div class="theme-slide active" style="background-image: url('images/cultural.1.jfif');"></div>
+                        <div class="theme-slide" style="background-image: url('images/cultural2.jfif');"></div>
+                    </div>
+                    <div class="slider-arrow prev" onclick="changeSlide('cultural', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="slider-arrow next" onclick="changeSlide('cultural', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-dot active" onclick="goToSlide('cultural', 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide('cultural', 1)"></div>
+                    </div>
+                </div>
+                
+                <div class="theme-description">
+                    <h3>Immerse Yourself in Rich Traditions</h3>
+                    <p>Experience the vibrant cultures of East Africa through authentic interactions with local communities. From Swahili cooking classes in Lamu to Maasai village visits in Kenya, our cultural tours offer deep insights into the traditions, music, dance, and culinary heritage of the region.</p>
+                    
+                    <div class="theme-features">
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Traditional cooking classes</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Local artisan workshops</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Historical site explorations</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Community homestay experiences</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#inquiry" class="btn" onclick="openInquiryModal('Cultural & Historical Tours')">
+                        <i class="fas fa-landmark"></i>
+                        Explore Cultural Tours
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider wave"></div>
+    </section>
+
+    <!-- Wellness Retreats Section -->
+    <section id="wellness" class="theme-section">
+        <div class="container">
+            <div class="theme-header">
+                <div class="theme-icon" style="background: linear-gradient(to right, var(--wellness-green), var(--turquoise));">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h2>Wellness Retreats</h2>
+                <p>Spa escapes, yoga sessions, and relaxation packages.</p>
+            </div>
+            
+            <div class="theme-content">
+                <div class="theme-description">
+                    <h3>Rejuvenate Your Mind, Body & Spirit</h3>
+                    <p>Find your inner peace in some of East Africa's most serene locations. Our wellness retreats combine ancient healing practices with luxurious spa treatments in tranquil settings—from yoga on Zanzibar's white sand beaches to meditation retreats in the foothills of Mount Kenya.</p>
+                    
+                    <div class="theme-features">
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Daily yoga and meditation</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Holistic spa treatments</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nutritional wellness programs</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Digital detox experiences</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#inquiry" class="btn" onclick="openInquiryModal('Wellness Retreats')">
+                        <i class="fas fa-heartbeat"></i>
+                        Begin Your Wellness Journey
+                    </a>
+                </div>
+                
+                <div class="theme-slider-container">
+                    <div class="theme-slider" id="wellness-slider">
+                        <div class="theme-slide active" style="background-image: url('images/wellness1.jfif');"></div>
+                        <div class="theme-slide" style="background-image: url('images/wellness2.jfif');"></div>
+                    </div>
+                    <div class="slider-arrow prev" onclick="changeSlide('wellness', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="slider-arrow next" onclick="changeSlide('wellness', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-dot active" onclick="goToSlide('wellness', 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide('wellness', 1)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider safari"></div>
+    </section>
+
+    <!-- Luxury Escapes Section -->
+    <section id="luxury" class="theme-section">
+        <div class="container">
+            <div class="theme-header">
+                <div class="theme-icon" style="background: linear-gradient(to right, var(--luxury-gold), var(--sunshine));">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h2>Luxury Escapes</h2>
+                <p>Premium experiences with upscale accommodation and exclusive service.</p>
+            </div>
+            
+            <div class="theme-content">
+                <div class="theme-slider-container">
+                    <div class="theme-slider" id="luxury-slider">
+                        <div class="theme-slide active" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                        <div class="theme-slide" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80');"></div>
+                    </div>
+                    <div class="slider-arrow prev" onclick="changeSlide('luxury', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="slider-arrow next" onclick="changeSlide('luxury', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-dot active" onclick="goToSlide('luxury', 0)"></div>
+                        <div class="slider-dot" onclick="goToSlide('luxury', 1)"></div>
+                    </div>
+                </div>
+                
+                <div class="theme-description">
+                    <h3>Indulge in Unparalleled Luxury</h3>
+                    <p>Experience East Africa in ultimate comfort and style with our luxury escapes. From private island resorts in Zanzibar to exclusive-use safari villas in the Serengeti, we curate experiences that combine lavish accommodations, personalized service, and unique access to the region's most spectacular locations.</p>
+                    
+                    <div class="theme-features">
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Private charters & transfers</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exclusive-use accommodations</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personal butler service</span>
+                        </div>
+                        <div class="theme-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>VIP access to attractions</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#inquiry" class="btn" onclick="openInquiryModal('Luxury Escapes')">
+                        <i class="fas fa-crown"></i>
+                        Experience Luxury
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Statement -->
+    <section class="closing-statement">
+        <div class="container">
+            <p>Every themed holiday is designed to reflect your personality and travel desires.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Traveler Stories</h2>
+                <p>See what our guests say about their themed holiday experiences</p>
+            </div>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonials-track" id="testimonials-track">
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"Our romantic getaway to Zanzibar was absolute perfection. VirtuQuest arranged every detail from the private beach dinner to the couples' spa day. It was the honeymoon we always dreamed of!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">James & Sophia Miller</div>
+                            <div class="author-theme">Romantic Getaways</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"The adventure tour to climb Kilimanjaro was challenging but incredibly rewarding. Our guides were professional and supportive every step of the way. An experience of a lifetime!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Michael Rodriguez</div>
+                            <div class="author-theme">Adventure Tours</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"The cultural immersion in Kenya gave us a deep appreciation for Maasai traditions. The homestay experience was authentic and eye-opening. Thank you, VirtuQuest!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Emma Chen</div>
+                            <div class="author-theme">Cultural & Historical Tours</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"Our luxury safari in the Serengeti exceeded all expectations. From the private game drives to the five-star lodge, every moment felt exclusive and carefully curated."</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">The Williams Family</div>
+                            <div class="author-theme">Luxury Escapes</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" onclick="goToTestimonial(0)"></div>
+                    <div class="testimonial-dot" onclick="goToTestimonial(1)"></div>
+                    <div class="testimonial-dot" onclick="goToTestimonial(2)"></div>
+                    <div class="testimonial-dot" onclick="goToTestimonial(3)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container cta-content">
+            <h2>Design Your Perfect Holiday</h2>
+            <p>Start Customizing Now with VirtuQuest Travels. Let us create a personalized journey that matches your interests, pace, and dreams.</p>
+            <a href="#inquiry" class="btn" onclick="openInquiryModal('General Inquiry')">
+                <i class="fas fa-pencil-alt"></i>
+                Design My Holiday
+            </a>
+        </div>
+    </section>
+
+    <!-- Quick Inquiry Button -->
+    <div class="inquiry-btn" onclick="openInquiryModal('General Inquiry')">
+        <i class="fas fa-envelope"></i>
+    </div>
+
+    <!-- Inquiry Modal -->
+    <div class="modal-overlay" id="inquiryModal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeInquiryModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3>Design Your Perfect Holiday</h3>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 25px;">Tell us about your dream vacation</p>
+            
+            <form id="inquiryForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="theme">Interest Theme *</label>
+                    <select id="theme" class="form-control" required>
+                        <option value="">Select a theme</option>
+                        <option value="romantic">Romantic Getaways</option>
+                        <option value="adventure">Adventure Tours</option>
+                        <option value="cultural">Cultural & Historical Tours</option>
+                        <option value="wellness">Wellness Retreats</option>
+                        <option value="luxury">Luxury Escapes</option>
+                        <option value="custom">Custom Combination</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="travelers">Number of Travelers</label>
+                    <select id="travelers" class="form-control">
+                        <option value="1">1 Traveler</option>
+                        <option value="2" selected>2 Travelers</option>
+                        <option value="3-4">3-4 Travelers</option>
+                        <option value="5-6">5-6 Travelers</option>
+                        <option value="7+">7+ Travelers</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell us about your dream holiday *</label>
+                    <textarea id="message" class="form-control" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VirtuQuest Travels</h3>
+                    <p>Turning travel dreams into unforgettable coastal and safari adventures across East Africa.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="themed-holidays.html">Themed Holidays</a>
+                    <a href="corporate-holidays.html">Corporate Holidays</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Coastal Plaza, Mombasa, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@virtuquesttravels.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 VirtuQuest Travels. All rights reserved. | Crafted with <i class="fas fa-heart" style="color:#ffb347;"></i> for travelers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Slider Functionality
+        const themeSliders = {
+            'romantic': { currentIndex: 0, totalSlides: 2 },
+            'adventure': { currentIndex: 0, totalSlides: 2 },
+            'cultural': { currentIndex: 0, totalSlides: 2 },
+            'wellness': { currentIndex: 0, totalSlides: 2 },
+            'luxury': { currentIndex: 0, totalSlides: 2 }
+        };
+
+        function changeSlide(theme, direction) {
+            const slider = themeSliders[theme];
+            slider.currentIndex += direction;
+            
+            if (slider.currentIndex < 0) {
+                slider.currentIndex = slider.totalSlides - 1;
+            } else if (slider.currentIndex >= slider.totalSlides) {
+                slider.currentIndex = 0;
+            }
+            
+            updateSlider(theme);
+        }
+
+        function goToSlide(theme, index) {
+            const slider = themeSliders[theme];
+            slider.currentIndex = index;
+            updateSlider(theme);
+        }
+
+        function updateSlider(theme) {
+            const slider = themeSliders[theme];
+            const slides = document.querySelectorAll(`#${theme}-slider .theme-slide`);
+            const dots = document.querySelectorAll(`#${theme} .slider-dot`);
+            
+            // Update slides
+            slides.forEach((slide, index) => {
+                if (index === slider.currentIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === slider.currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-advance sliders
+        setInterval(() => {
+            for (const theme in themeSliders) {
+                changeSlide(theme, 1);
+            }
+        }, 5000);
+
+        // Theme Navigation
+        const themeNavLinks = document.querySelectorAll('.theme-nav-link');
+        const themeSections = document.querySelectorAll('.theme-section');
+        
+        function updateThemeNav() {
+            let currentTheme = '';
+            
+            themeSections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.id;
+                
+                if (window.scrollY >= (sectionTop - 150) && window.scrollY < (sectionTop + sectionHeight - 150)) {
+                    currentTheme = sectionId;
+                }
+            });
+            
+            themeNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentTheme}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        (function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navList = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            if (menuBtn && navList) {
+                menuBtn.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    navList.classList.toggle('show');
+                });
+
+                navLinks.forEach(a => a.addEventListener('click', function() {
+                    if (navList.classList.contains('show')) {
+                        navList.classList.remove('show');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }));
+            }
+
+            // Mark active link based on current page
+            const current = location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(a => {
+                const href = a.getAttribute('href');
+                if (href === current || (href === 'index.html' && current === '')) {
+                    a.classList.add('active');
+                }
+            });
+        })();
+
+        // Testimonials Carousel
+        let currentTestimonial = 0;
+        const totalTestimonials = 4;
+        const testimonialTrack = document.getElementById('testimonials-track');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+            
+            testimonialDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-advance testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            goToTestimonial(currentTestimonial);
+        }, 6000);
+
+        // Modal Functionality
+        function openInquiryModal(theme) {
+            const modal = document.getElementById('inquiryModal');
+            const themeSelect = document.getElementById('theme');
+            
+            if (theme) {
+                // Set the theme in the form based on which button was clicked
+                const themeValueMap = {
+                    'Romantic Getaways': 'romantic',
+                    'Adventure Tours': 'adventure',
+                    'Cultural & Historical Tours': 'cultural',
+                    'Wellness Retreats': 'wellness',
+                    'Luxury Escapes': 'luxury',
+                    'General Inquiry': ''
+                };
+                
+                if (themeValueMap[theme]) {
+                    themeSelect.value = themeValueMap[theme];
+                }
+            }
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInquiryModal() {
+            const modal = document.getElementById('inquiryModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form Submission
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                theme: document.getElementById('theme').value,
+                travelers: document.getElementById('travelers').value,
+                message: document.getElementById('message').value
+            };
+            
+            // In a real implementation, you would send this data to a server
+            // For now, we'll just show an alert and close the modal
+            alert('Thank you for your inquiry! We will contact you within 24 hours to start designing your perfect holiday.');
+            closeInquiryModal();
+            
+            // Reset form
+            document.getElementById('inquiryForm').reset();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('inquiryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInquiryModal();
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.padding = '20px 0';
+            }
+            
+            // Update theme navigation highlighting
+            updateThemeNav();
+        });
+
+        // Initialize theme navigation
+        updateThemeNav();
+    </script>
+</body>
+</html>

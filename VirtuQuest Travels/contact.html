@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | VirtuQuest Travels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables - Extended VirtuQuest Brand */
+        :root {
+            --sand: #f7f3e9;
+            --sand-dark: #e8d8b6;
+            --turquoise: #1ca9c9;
+            --turquoise-dark: #0e8ea8;
+            --ocean-blue: #2a6b8a;
+            --sunshine: #ffb347;
+            --savannah: #b68d40;
+            --safari-brown: #8b4513;
+            --palm-green: #2d5a27;
+            --text-dark: #333;
+            --text-light: #555;
+            
+            /* Contact Page Specific Colors */
+            --navy: #0d2b4e;
+            --light-gray: #f8f9fa;
+            --success-green: #28a745;
+            --error-red: #dc3545;
+            
+            --header-height: 80px;
+            --transition-speed: 0.4s;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--sand);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Contact Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(to right, var(--turquoise), var(--ocean-blue));
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--savannah), var(--turquoise-dark));
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--turquoise);
+            color: var(--turquoise);
+        }
+
+        .btn-outline:hover {
+            background: var(--turquoise);
+            color: white;
+        }
+
+        /* Header - Contact Version */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-speed) ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--ocean-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--sunshine);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color var(--transition-speed);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--turquoise);
+        }
+
+        nav ul li a.active {
+            color: var(--turquoise);
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        /* Contact Hero Section */
+        .contact-hero {
+            height: 85vh;
+            background: linear-gradient(135deg, rgba(42, 107, 138, 0.85) 0%, rgba(182, 141, 64, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-top: var(--header-height);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23f7f3e9"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            animation: slideUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            animation: slideUp 1s ease-out 0.5s both;
+        }
+
+        /* Contact Navigation Bar */
+        .contact-nav {
+            position: sticky;
+            top: var(--header-height);
+            z-index: 999;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.97), rgba(247, 243, 233, 0.97));
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-nav-link {
+            padding: 12px 25px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-nav-link:hover, .contact-nav-link.active {
+            background: linear-gradient(to right, var(--turquoise), var(--ocean-blue));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(28, 169, 201, 0.2);
+        }
+        /* Hamburger button for mobile */
+.menu-btn {
+    display: none; /* hidden on large screens */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 1024px) {
+    .menu-btn {
+        display: block;
+    }
+
+    /* Hide regular nav links initially on mobile */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        background: white;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        z-index: 999;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+        
+
+        /* Contact Info Section */
+        .contact-info-section {
+            background-color: white;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Contact Information Cards */
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease;
+            border-top: 4px solid var(--turquoise);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--turquoise), var(--ocean-blue));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(28, 169, 201, 0.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .contact-link {
+            color: var(--turquoise);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .contact-link:hover {
+            color: var(--savannah);
+            transform: translateX(5px);
+        }
+        
+
+        /* Social Media Section */
+        .social-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .social-title {
+            color: var(--navy);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--turquoise), var(--ocean-blue));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 5px 15px rgba(28, 169, 201, 0.2);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(28, 169, 201, 0.3);
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            position: absolute;
+            width: 100%;
+            height: 60px;
+            bottom: -30px;
+            left: 0;
+            z-index: 5;
+        }
+
+        .section-divider.wave {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23ffffff" opacity="0.7"/></svg>');
+            background-size: cover;
+        }
+
+        .section-divider.safari {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23b68d40"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23b68d40"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23b68d40"/></svg>');
+            background-size: cover;
+        }
+
+        /* Booking Form Section */
+        .booking-section {
+            background-color: var(--sand);
+            position: relative;
+        }
+
+        .booking-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h3 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .form-header p {
+            color: var(--text-light);
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group .required {
+            color: var(--error-red);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all var(--transition-speed) ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--turquoise);
+            box-shadow: 0 0 0 3px rgba(28, 169, 201, 0.1);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 20px;
+            padding-right: 45px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-error {
+            color: var(--error-red);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: white;
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: all var(--transition-speed) ease;
+            border-top: 4px solid transparent;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .service-card:nth-child(1):hover {
+            border-top-color: var(--turquoise);
+        }
+
+        .service-card:nth-child(2):hover {
+            border-top-color: var(--savannah);
+        }
+
+        .service-card:nth-child(3):hover {
+            border-top-color: var(--ocean-blue);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--turquoise), var(--ocean-blue));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(28, 169, 201, 0.2);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            background: linear-gradient(135deg, var(--savannah), var(--sunshine));
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            background: linear-gradient(135deg, var(--ocean-blue), var(--navy));
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--sand);
+            position: relative;
+        }
+
+        .testimonials-carousel {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 50px;
+            background-color: white;
+            border-radius: var(--border-radius);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: "\201C";
+            font-size: 4rem;
+            color: var(--turquoise);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--turquoise), var(--savannah));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .author-trip {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--sand-dark);
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--turquoise);
+            transform: scale(1.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(42, 107, 138, 0.9) 0%, rgba(182, 141, 64, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%230d2b4e"/></svg>');
+            background-size: cover;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            padding: 50px 40px;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .modal-close:hover {
+            color: var(--turquoise);
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--success-green), #20c997);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--sunshine);
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-column a:hover {
+            color: var(--sunshine);
+        }
+
+        .contact-hours {
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                height: 75vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-nav-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .contact-nav-link {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .booking-container {
+                padding: 30px 20px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-slide {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-sun"></i>
+                VirtuQuest Travels
+            </a>
+            <nav>
+                <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="themed-holidays.html">Themed Holidays</a></li>
+                    <li><a href="corporate-holidays.html">Corporate Holidays</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container hero-content">
+            <h1>Get in Touch With VirtuQuest Travels</h1>
+            <p>Whether you have questions, want to book a trip, or need personalized advice, our team is here to help you plan your unforgettable East African journey.</p>
+            <a href="#booking-form" class="btn">
+                <i class="fas fa-calendar-alt"></i>
+                Book Your Adventure
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Navigation -->
+    <div class="contact-nav">
+        <div class="container contact-nav-container">
+            <a href="#contact-info" class="contact-nav-link active">
+                <i class="fas fa-info-circle"></i>
+                Contact Info
+            </a>
+            <a href="#booking-form" class="contact-nav-link">
+                <i class="fas fa-file-alt"></i>
+                Booking Form
+            </a>
+            <a href="#our-services" class="contact-nav-link">
+                <i class="fas fa-concierge-bell"></i>
+                Our Services
+            </a>
+            <a href="#testimonials" class="contact-nav-link">
+                <i class="fas fa-comments"></i>
+                Testimonials
+            </a>
+        </div>
+    </div>
+
+    <!-- Contact Info Section -->
+    <section id="contact-info" class="contact-info-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+                <p>Reach out to us through any of these channels for personalized travel assistance</p>
+            </div>
+
+            <div class="contact-info-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with our travel consultants for immediate assistance</p>
+                    <a href="tel:+254700123456" class="contact-link">
+                        +254 700 123 456
+                    </a>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Mon-Sat: 8am-8pm | Sun: 10am-4pm</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Send us a detailed inquiry and we'll respond within 24 hours</p>
+                    <a href="mailto:info@virtuquesttravels.com" class="contact-link">
+                        info@virtuquesttravels.com
+                    </a>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">For corporate inquiries: corporate@virtuquesttravels.com</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Our Office</h3>
+                    <p>Meet our team in person for personalized travel planning</p>
+                    <a href="https://maps.google.com/?q=Coastal+Plaza,+Mombasa,+Kenya" target="_blank" class="contact-link">
+                        Coastal Plaza, Mombasa, Kenya
+                    </a>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Open Mon-Fri: 9am-6pm | Sat: 10am-2pm</p>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <h3 class="social-title">Follow Our Journey</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Pinterest">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider wave"></div>
+    </section>
+
+   <!-- Booking Form Section -->
+<section id="booking-form" class="booking-section">
+    <div class="container">
+        <div class="booking-container">
+            <div class="form-header">
+                <h3>Plan Your Adventure</h3>
+                <p>Fill out the form below and our travel experts will contact you to create your perfect itinerary</p>
+            </div>
+            
+            <form id="bookingForm" class="booking-form" action="https://formspree.io/f/myzrpyka" method="POST">
+                <div class="form-group">
+                    <label for="serviceType">Service Type <span class="required">*</span></label>
+                    <select id="serviceType" name="serviceType" class="form-control" required>
+                        <option value="">Select a service</option>
+                        <option value="destinations">Destinations</option>
+                        <option value="themed-holidays">Themed Holidays</option>
+                        <option value="corporate-holidays">Corporate Holidays</option>
+                        <option value="custom-package">Custom Package</option>
+                        <option value="general-inquiry">General Inquiry</option>
+                    </select>
+                    <div class="form-error" id="serviceTypeError">Please select a service type</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Your full name" required>
+                    <div class="form-error" id="fullNameError">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
+                    <div class="form-error" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="+254 700 123 456">
+                </div>
+                
+                <div class="form-group">
+                    <label for="preferredDates">Preferred Travel Dates</label>
+                    <input type="text" id="preferredDates" name="preferredDates" class="form-control" placeholder="e.g., June 15-30, 2024">
+                </div>
+                
+                <div class="form-group">
+                    <label for="travelers">Number of Travelers</label>
+                    <select id="travelers" name="travelers" class="form-control">
+                        <option value="1">1 Traveler</option>
+                        <option value="2" selected>2 Travelers</option>
+                        <option value="3-4">3-4 Travelers</option>
+                        <option value="5-6">5-6 Travelers</option>
+                        <option value="7-10">7-10 Travelers</option>
+                        <option value="10+">10+ Travelers</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="specialRequests">Special Requests / Additional Information</label>
+                    <textarea id="specialRequests" name="specialRequests" class="form-control" placeholder="Tell us about your travel preferences, interests, dietary restrictions, or any special requirements..."></textarea>
+                </div>
+                
+                <div class="form-group full-width" style="text-align: center; margin-top: 20px;">
+                    <button type="submit" class="btn" style="width: 100%; max-width: 300px;">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Booking Inquiry
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="section-divider safari"></div>
+</section>
+
+    <!-- Services Section -->
+    <section id="our-services" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Explore our specialized travel services to find the perfect fit for your journey</p>
+            </div>
+            
+            <div class="services-grid">
+                <a href="destinations.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Destinations</h3>
+                    <p>Explore breathtaking East African destinations from pristine beaches to wildlife-rich savannahs</p>
+                </a>
+                
+                <a href="themed-holidays.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Themed Holidays</h3>
+                    <p>Personalized vacations tailored to your interests: romance, adventure, wellness, culture, and luxury</p>
+                </a>
+                
+                <a href="corporate-holidays.html" class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Corporate Holidays</h3>
+                    <p>Team-building retreats, staff reward vacations, and leadership strategy getaways for organizations</p>
+                </a>
+            </div>
+        </div>
+        <div class="section-divider wave"></div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Traveler Experiences</h2>
+                <p>See what our clients say about planning their journeys with VirtuQuest</p>
+            </div>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonials-track" id="testimonials-track">
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"The booking process with VirtuQuest was seamless from start to finish. Their team helped us customize our honeymoon to Zanzibar, anticipating our every need. The communication was excellent throughout the entire planning process."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SK</div>
+                            <div class="author-info">
+                                <h4>Samuel & Keisha</h4>
+                                <div class="author-trip">Zanzibar Honeymoon | June 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"As a solo female traveler, I was nervous about planning an African safari. VirtuQuest's team was incredibly responsive and reassuring, answering all my questions promptly. They created a perfect itinerary that felt safe and adventurous."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AM</div>
+                            <div class="author-info">
+                                <h4>Amara M.</h4>
+                                <div class="author-trip">Solo Safari Adventure | August 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"We booked a corporate retreat for 25 employees through VirtuQuest. Their attention to detail was impressive, and they handled all logistics flawlessly. The team was available 24/7 during our trip. Highly recommend for group travel!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">TC</div>
+                            <div class="author-info">
+                                <h4>TechCorp Kenya</h4>
+                                <div class="author-trip">Corporate Team Retreat | October 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" onclick="goToTestimonial(0)"></div>
+                    <div class="testimonial-dot" onclick="goToTestimonial(1)"></div>
+                    <div class="testimonial-dot" onclick="goToTestimonial(2)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Start Planning Your Journey With Us Today</h2>
+            <p>Let our travel experts create an unforgettable East African adventure tailored just for you</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#booking-form" class="btn">
+                    <i class="fas fa-calendar-check"></i>
+                    Book Now
+                </a>
+                <a href="tel:+254700123456" class="btn btn-outline">
+                    <i class="fas fa-phone-alt"></i>
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3>Thank You!</h3>
+            <p>Your booking inquiry has been received successfully. Our travel experts will contact you within 24 hours to start planning your adventure.</p>
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 15px;">
+                <i class="fas fa-envelope"></i> Confirmation sent to your email
+            </p>
+            <button class="btn" onclick="closeModal()" style="margin-top: 20px;">
+                <i class="fas fa-home"></i>
+                Back to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VirtuQuest Travels</h3>
+                    <p>Creating unforgettable journeys across East Africa with personalized service and attention to detail.</p>
+                    <div class="contact-hours">
+                        <p><strong>Office Hours:</strong></p>
+                        <p>Mon-Fri: 9am-6pm EAT</p>
+                        <p>Saturday: 10am-2pm EAT</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="themed-holidays.html">Themed Holidays</a>
+                    <a href="corporate-holidays.html">Corporate Holidays</a>
+                    <a href="#">About Us</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Coastal Plaza, Mombasa, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@virtuquesttravels.com</p>
+                    <p><i class="fas fa-envelope"></i> corporate@virtuquesttravels.com</p>
+                    <p><i class="fas fa-clock"></i> Emergency: 24/7 Support Available</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 VirtuQuest Travels. All rights reserved. | Your journey begins here</p>
+            </div>
+        </div>
+    </footer>
+
+   <script>
+    // Contact Navigation
+    const contactNavLinks = document.querySelectorAll('.contact-nav-link');
+    const contactSections = document.querySelectorAll('section[id]');
+    
+    function updateContactNav() {
+        let currentSection = '';
+        
+        contactSections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            const sectionId = section.id;
+            
+            // Skip CTA section from navigation
+            if (sectionId === '') return;
+            
+            if (window.scrollY >= (sectionTop - 150) && window.scrollY < (sectionTop + sectionHeight - 150)) {
+                currentSection = sectionId;
+            }
+        });
+        
+        contactNavLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Testimonials Carousel
+    let currentTestimonial = 0;
+    const totalTestimonials = 3;
+    const testimonialTrack = document.getElementById('testimonials-track');
+    const testimonialDots = document.querySelectorAll('.testimonial-dot');
+
+    function goToTestimonial(index) {
+        currentTestimonial = index;
+        testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+        
+        testimonialDots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    // Auto-advance testimonials
+    setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+        goToTestimonial(currentTestimonial);
+    }, 7000);
+
+    // Modal Functions
+    function showSuccessModal() {
+        const modal = document.getElementById('successModal');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('successModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('successModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Form Validation and Submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        
+        // Reset errors
+        document.querySelectorAll('.form-error').forEach(error => {
+            error.classList.remove('show');
+        });
+        
+        // Validate service type
+        const serviceType = document.getElementById('serviceType');
+        if (!serviceType.value) {
+            document.getElementById('serviceTypeError').classList.add('show');
+            serviceType.focus();
+            isValid = false;
+        }
+        
+        // Validate full name
+        const fullName = document.getElementById('fullName');
+        if (!fullName.value.trim()) {
+            document.getElementById('fullNameError').classList.add('show');
+            if (isValid) fullName.focus();
+            isValid = false;
+        }
+        
+        // Validate email
+        const email = document.getElementById('email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRegex.test(email.value)) {
+            document.getElementById('emailError').classList.add('show');
+            if (isValid) email.focus();
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Collect form data
+            const formData = {
+                serviceType: document.getElementById('serviceType').value,
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                preferredDates: document.getElementById('preferredDates').value,
+                travelers: document.getElementById('travelers').value,
+                specialRequests: document.getElementById('specialRequests').value
+            };
+
+            // Send form data to Formspree
+            fetch('https://formspree.io/f/myzrpyka', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    showSuccessModal();
+                    document.getElementById('bookingForm').reset();
+                } else {
+                    alert('Oops! Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('Error sending form: ' + error);
+            });
+        } else {
+            // Scroll to first error if form invalid
+            const firstError = document.querySelector('.form-error.show');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
+
+    // Real-time validation
+    document.querySelectorAll('#bookingForm input, #bookingForm select').forEach(input => {
+        input.addEventListener('blur', function() {
+            const errorId = this.id + 'Error';
+            const errorElement = document.getElementById(errorId);
+            
+            if (errorElement) {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    errorElement.classList.add('show');
+                } else if (this.id === 'email' && this.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(this.value)) {
+                        errorElement.classList.add('show');
+                    } else {
+                        errorElement.classList.remove('show');
+                    }
+                } else {
+                    errorElement.classList.remove('show');
+                }
+            }
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            header.style.padding = '15px 0';
+        } else {
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            header.style.padding = '20px 0';
+        }
+        
+        // Update contact navigation highlighting
+        updateContactNav();
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if(this.getAttribute('href') === '#') return;
+            
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if(targetElement) {
+                // Update active nav link
+                document.querySelectorAll('.contact-nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Smooth scroll to target
+                window.scrollTo({
+                    top: targetElement.offsetTop - 120,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Initialize contact navigation
+    updateContactNav();
+
+    // Mobile menu toggle & active link handling
+    (function() {
+        const menuBtn = document.querySelector('.menu-btn');
+        const navList = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        if (menuBtn && navList) {
+            menuBtn.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!expanded));
+                navList.classList.toggle('show');
+            });
+
+            navLinks.forEach(a => a.addEventListener('click', function() {
+                if (navList.classList.contains('show')) {
+                    navList.classList.remove('show');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+            }));
+        }
+
+        // Mark active link based on current page
+        const current = location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(a => {
+            const href = a.getAttribute('href');
+            if (href === current || (href === 'index.html' && current === '')) {
+                a.classList.add('active');
+            }
+        });
+    })();
+</script>
+</body>
+</html>

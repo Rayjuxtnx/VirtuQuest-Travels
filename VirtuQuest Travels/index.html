@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtuQuest Travels  Coastal Summer Adventures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --sand: #f7f3e9;
+            --sand-dark: #e8d8b6;
+            --turquoise: #1ca9c9;
+            --turquoise-dark: #0e8ea8;
+            --ocean-blue: #2a6b8a;
+            --sunshine: #ffb347;
+            --palm-green: #2d5a27;
+            --text-dark: #333;
+            --text-light: #555;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--sand);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--ocean-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(to right, var(--turquoise), var(--turquoise-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(28, 169, 201, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(28, 169, 201, 0.3);
+            background: linear-gradient(to right, var(--turquoise-dark), var(--ocean-blue));
+        }
+
+        /* Header & Hero Section */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            transition: background-color 0.25s, padding 0.25s;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--sunshine);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.2s;
+            padding: 6px 8px;
+            border-radius: 6px;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--sunshine);
+            background: rgba(255,255,255,0.06);
+        }
+
+        /* Mobile menu button */
+        .menu-btn {
+            display: none;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.12);
+            color: white;
+            padding: 8px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn { display: inline-flex; align-items: center; gap:8px; }
+            nav ul { display: none; position: absolute; right: 0; top: 60px; background: rgba(42,107,138,0.95); flex-direction: column; padding: 12px; border-radius: 8px; }
+            nav ul.show { display: flex; }
+            nav ul li { margin: 8px 0; }
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(42, 107, 138, 0.7), rgba(28, 169, 201, 0.5)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: var(--sand);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--turquoise);
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--sand);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 40px 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--turquoise);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--ocean-blue);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        .trust-note {
+            text-align: center;
+            margin-top: 50px;
+            font-style: italic;
+            color: var(--ocean-blue);
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Destinations Section */
+        .destinations {
+            background-color: white;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .destination-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            height: 300px;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .destination-image {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.1);
+        }
+
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 25px 20px 20px;
+        }
+
+        .destination-name {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .destination-desc {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Packages Section */
+        .packages {
+            background-color: var(--sand);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .package-header {
+            background: linear-gradient(to right, var(--turquoise), var(--ocean-blue));
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .package-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .package-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .package-body p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--sand);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "\201C";
+            font-size: 4rem;
+            color: var(--turquoise);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--ocean-blue);
+            text-align: right;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(42, 107, 138, 0.85), rgba(28, 169, 201, 0.8)), 
+                        url('images/mombasa3.jfif');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            padding: 100px 0;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ocean-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--sunshine);
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--sunshine);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .about-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Hero Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-sun"></i>
+                VirtuQuest Travels
+            </div>
+            <nav>
+                <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="themed-holidays.html">Themed Holidays</a></li>
+                    <li><a href="corporate-holidays.html">Corporate Holidays</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to VirtuQuest Travels</h1>
+            <p>Where coastal breezes meet adventurous spirits. Discover sun-kissed beaches, turquoise waters, and unforgettable journeys designed just for you.</p>
+            <a href="contact.html" class="btn">Start Your Journey</a>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <p>Turning travel dreams into unforgettable experiences</p>
+            </div>
+            <div class="about-content">
+                <p>At VirtuQuest Travels, we turn travel dreams into unforgettable experiences. Born from a passion for exploration and a deep love for East Africa, we specialize in creating journeys that inspire, connect, and transform. Whether you seek the serenity of the coast, the thrill of wildlife adventures, or a customized holiday designed around your interests, VirtuQuest is your trusted partner in travel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Travel With Us</h2>
+                <p>Experience the difference with our personalized approach</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Personalized Travel Planning</h3>
+                    <p>Every journey is crafted to match your unique interests, pace, and dreams.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Experienced Local Guides</h3>
+                    <p>Connect with authentic experiences through our knowledgeable local partners.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Handpicked Accommodations</h3>
+                    <p>Stay in beautiful, comfortable locations that enhance your travel experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Smooth Coordination</h3>
+                    <p>We handle all details so you can relax and immerse in your adventure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Unique Experiences</h3>
+                    <p>Go beyond the ordinary with immersive activities and hidden gems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trust & Comfort</h3>
+                    <p>Travel with confidence knowing we prioritize your safety and satisfaction.</p>
+                </div>
+            </div>
+            <div class="trust-note">
+                <p>We're committed to providing a travel experience that feels like a warm, coastal breeze—refreshing, invigorating, and always welcoming.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>Explore our handpicked coastal and adventure destinations</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/mombasa3.jfif');"></div>
+                    <div class="destination-overlay">
+                        <h3 class="destination-name">Mombasa</h3>
+                        <p class="destination-desc">Where ancient Swahili culture meets pristine white-sand beaches and turquoise Indian Ocean waters.</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/nairobi1.jfif');"></div>
+                    <div class="destination-overlay">
+                        <h3 class="destination-name">Nairobi</h3>
+                        <p class="destination-desc">A vibrant urban safari where cosmopolitan energy meets wildlife adventures just beyond the city.</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/zanzibar1.jfif');"></div>
+                    <div class="destination-overlay">
+                        <h3 class="destination-name">Zanzibar</h3>
+                        <p class="destination-desc">Spice-scented islands with crystalline waters, historic Stone Town, and endless beach bliss.</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/mara1.jfif');"></div>
+                    <div class="destination-overlay">
+                        <h3 class="destination-name">Maasai Mara</h3>
+                        <p class="destination-desc">Golden savannahs teeming with wildlife and the spectacular Great Migration drama.</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-image" style="background-image: url('images/serengeti1.jfif');"></div>
+                    <div class="destination-overlay">
+                        <h3 class="destination-name">Serengeti</h3>
+                        <p class="destination-desc">Endless plains where nature's greatest spectacle unfolds under vast African skies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Themed & Special Holidays</h2>
+                <p>Tailored experiences for every type of traveler</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Themed Holidays</h3>
+                        <p>Curated around your passions</p>
+                    </div>
+                    <div class="package-body">
+                        <p>From romantic beach getaways and family adventures to wildlife photography safaris and cultural immersion journeys.</p>
+                        <a href="themed-holidays.html" class="btn">Explore Themes</a>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Corporate Vacations</h3>
+                        <p>Productivity meets relaxation</p>
+                    </div>
+                    <div class="package-body">
+                        <p>Team-building retreats, incentive travel, and conference packages in inspiring coastal and safari settings.</p>
+                        <a href="corporate-holidays.html" class="btn">Corporate Plans</a>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Custom-Designed Travel</h3>
+                        <p>Your vision, our expertise</p>
+                    </div>
+                    <div class="package-body">
+                        <p>Create a completely personalized itinerary that matches your unique interests, timeline, and budget.</p>
+                        <a href="contact.html" class="btn">Start Designing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Traveler Stories</h2>
+                <p>See what our adventurers have to say</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Our Zanzibar getaway was pure magic. VirtuQuest planned every detail perfectly—from the secluded beach villa to the spice tour. It was the tropical escape we dreamed of!"</p>
+                    <p class="testimonial-author">– Sarah & Michael, UK</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The Maasai Mara safari exceeded all expectations. Our guide was incredibly knowledgeable, and we saw the Great Migration up close. Thank you for an unforgettable adventure!"</p>
+                    <p class="testimonial-author">– The Johnson Family, USA</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a solo traveler, I felt completely safe and cared for. The team created a perfect blend of relaxation and adventure along the Kenyan coast. Can't wait to return!"</p>
+                    <p class="testimonial-author">– Elena, Germany</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Start your journey with us</h2>
+            <p>Every trip is a story waiting to be told. Let's write yours together.</p>
+            <a href="contact.html" class="btn">Plan My Trip</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VirtuQuest Travels</h3>
+                    <p>Turning travel dreams into unforgettable coastal and safari adventures across East Africa.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+               <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="themed-holidays.html">Themed Holidays</a>
+                    <a href="corporate-holidays.html">Corporate Holidays</a>
+                    <a href="themed-holidays.html">About Us</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Coastal Plaza, Mombasa, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 111 955 641</p>
+                    <p><i class="fas fa-envelope"></i> info@virtuquesttravels.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 VirtuQuest Travels. All rights reserved. | Crafted with <i class="fas fa-heart" style="color:#ffb347;"></i> for travelers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add a simple scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(42, 107, 138, 0.95)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.backgroundColor = 'transparent';
+                header.style.padding = '25px 0';
+            }
+        });
+
+        // Mobile menu toggle & active link handling
+        (function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navList = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            if (menuBtn && navList) {
+                menuBtn.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    navList.classList.toggle('show');
+                });
+
+                // Close mobile menu when a link is clicked
+                navLinks.forEach(a => a.addEventListener('click', function() {
+                    if (navList.classList.contains('show')) {
+                        navList.classList.remove('show');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }));
+            }
+
+            // Mark active link based on current page
+            const current = location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(a => {
+                const href = a.getAttribute('href');
+                if (href === current || (href === 'index.html' && current === '')) {
+                    a.classList.add('active');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
+
+    <!-- DEBUG: Log nav clicks to help diagnose themed-holidays link issues -->
+    <script>
+        (function(){
+            document.addEventListener('click', function(e){
+                const a = e.target.closest && e.target.closest('nav a');
+                if (!a) return;
+                try {
+                    const href = a.getAttribute('href');
+                    const resolved = new URL(href, location.href).href;
+                    console.log('[DEBUG] nav click:', {href, resolved});
+                } catch (err) {
+                    console.log('[DEBUG] nav click (error resolving):', a.getAttribute('href'));
+                }
+            }, true);
+        })();
+    </script>
