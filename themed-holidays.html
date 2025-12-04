@@ -286,6 +286,20 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(28, 169, 201, 0.2);
         }
+        /* Mobile adjustments for theme navigation */
+@media (max-width: 768px) {
+    .theme-nav {
+        padding: 8px 0;
+        font-size: 0.8rem;
+    }
+
+    .theme-nav-link {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        gap: 5px;
+    }
+}
+
         
 
         /* Themed Holiday Sections */
@@ -1555,6 +1569,28 @@
                 }
             });
         }
+        // Hide/show navigation bars on scroll (contact, corporate, theme)
+let lastScroll = 0;
+const navs = document.querySelectorAll('.contact-nav, .corporate-nav, .theme-nav');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    navs.forEach(nav => {
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scrolling down — hide nav
+            nav.style.transform = 'translateY(-100%)';
+            nav.style.transition = 'transform 0.3s ease';
+        } else {
+            // Scrolling up — show nav
+            nav.style.transform = 'translateY(0)';
+            nav.style.transition = 'transform 0.3s ease';
+        }
+    });
+
+    lastScroll = currentScroll;
+});
+
 
         // Mobile menu toggle
         (function() {
