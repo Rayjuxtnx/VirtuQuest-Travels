@@ -196,6 +196,57 @@
     height: 50px;       /* Adjust to your design */
     margin-right: 20px;
 }
+/* FORCE header to stay visible and solid black */
+header {
+    background-color: #000 !important;
+    height: 90px; /* lock the height so it doesn't collapse */
+}
+
+/* Push hero down so it doesn't sit under the fixed header */
+.hero {
+    padding-top: 90px;
+}
+
+/* Extra safety: make sure header stays above everything */
+header {
+    z-index: 9999;
+}
+
+/* FORCE header content to be white by default */
+header,
+header * {
+    color: #ffffff !important;
+}
+
+/* ACTIVE nav link should be blue */
+header nav a.active {
+    color: var(--turquoise) !important;
+}
+
+/* Optional: hover stays white (remove if you want blue hover) */
+header nav a:hover {
+    color: #ffffff !important;
+}
+
+/* Hamburger icon stays white */
+header .menu-btn {
+    color: #ffffff !important;
+}
+
+/* Mobile nav links visibility fix */
+@media (max-width: 1024px) {
+    /* Show links in dark color on mobile */
+    header nav .nav-links a {
+        color: var(--text-dark) !important; /* dark links so visible on black */
+    }
+
+    /* Hover and active state */
+    header nav .nav-links a:hover,
+    header nav .nav-links a.active {
+        color: var(--turquoise) !important; /* highlight on hover or active */
+    }
+}
+
 
         /* Contact Hero Section */
         .contact-hero {
@@ -1052,7 +1103,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                 <img src="images/VQTLion.png" alt="VirtuQuest Travels" class="logo-img">
+                 <img src="logo vs.jpeg" alt="VirtuQuest Travels" class="logo-img">
             VirtuQuest Travels
             </a>
             <nav>
@@ -1065,6 +1116,7 @@
                     <li><a href="themed-holidays.html">Themed Holidays</a></li>
                     <li><a href="corporate-holidays.html">Corporate Holidays</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="price-quote.html">Our prices</a></li>
                 </ul>
             </nav>
         </div>

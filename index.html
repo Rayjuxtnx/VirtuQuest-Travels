@@ -130,7 +130,7 @@
         .logo {
             display: flex;
             align-items: center;
-            color: white;
+            color: rgb(253, 251, 251);
             font-size: 1.8rem;
             font-weight: 700;
         }
@@ -152,7 +152,7 @@
         }
 
         nav ul li a {
-            color: white;
+            color: rgb(254, 253, 253);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.05rem;
@@ -164,7 +164,7 @@
         nav ul li a:hover,
         nav ul li a.active {
             color: var(--sunshine);
-            background: rgba(255,255,255,0.06);
+            background: rgba(0, 0, 0, 0.06);
         }
         .logo-img {
     height: 50px;       /* Adjust to your design */
@@ -186,7 +186,7 @@
 
         @media (max-width: 768px) {
             .menu-btn { display: inline-flex; align-items: center; gap:8px; }
-            nav ul { display: none; position: absolute; right: 0; top: 60px; background: rgba(42,107,138,0.95); flex-direction: column; padding: 12px; border-radius: 8px; }
+            nav ul { display: none; position: absolute; right: 0; top: 60px; background: rgba(0, 0, 0, 0.95); flex-direction: column; padding: 12px; border-radius: 8px; }
             nav ul.show { display: flex; }
             nav ul li { margin: 8px 0; }
         }
@@ -373,6 +373,22 @@
             font-size: 0.95rem;
             opacity: 0.9;
         }
+        /* FORCE header to stay visible and solid black */
+header {
+    background-color: #000 !important;
+    height: 90px; /* lock the height so it doesn't collapse */
+}
+
+/* Push hero down so it doesn't sit under the fixed header */
+.hero {
+    padding-top: 90px;
+}
+
+/* Extra safety: make sure header stays above everything */
+header {
+    z-index: 9999;
+}
+
 
         /* Packages Section */
         .packages {
@@ -568,7 +584,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                 <img src="images/VQTLion.png" alt="VirtuQuest Travels" class="logo-img">
+                 <img src="logo vs.jpeg" alt="VirtuQuest Travels" class="logo-img">
             VirtuQuest Travels
             </div>
             <nav>
