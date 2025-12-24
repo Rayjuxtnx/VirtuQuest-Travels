@@ -223,7 +223,6 @@ body {
     color: #fff;
 }
 
-/* Header Styles */
 header {
     position: fixed;
     top: 0;
@@ -231,8 +230,8 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
-    background-color: rgba(0, 0, 0, 0.95);
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.05);
+    background-color: #000;
+    box-shadow: 0 5px 20px rgba(162, 162, 162, 0.05);
     transition: all 0.3s ease;
 }
 
@@ -240,6 +239,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Header background (force true black) */
+header {
+    background-color: #000;
 }
 
 /* Logo */
@@ -260,6 +264,11 @@ header {
 .logo-img {
     height: 50px;
     margin-right: 20px;
+}
+
+/* FORCE HAMBURGER ICON PURE WHITE */
+.menu-btn i {
+    color: #ffffff !important;
 }
 
 /* Navigation */
@@ -326,7 +335,7 @@ nav ul li a.active::after {
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            color: white;
+            color: rgb(0, 0, 0);
             padding: 0 20px;
             position: relative;
             z-index: 2;
