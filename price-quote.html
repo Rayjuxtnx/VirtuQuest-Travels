@@ -216,81 +216,87 @@
 }
 
 
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
+        /* ===== DARK THEME (BLACK BG, WHITE CONTENT) ===== */
 
+body {
+    background-color: #f9f9f9;
+    color: #fff;
+}
 
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            color: var(--ocean-blue);
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
 
-        .logo i {
-            color: var(--sunshine);
-            margin-right: 10px;
-            font-size: 2rem;
-        }
+.logo i {
+    color: var(--sunshine);
+    margin-right: 10px;
+    font-size: 2rem;
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: var(--turquoise);
-        }
-
-        nav ul li a.active {
-            color: var(--turquoise);
-        }
-
-        nav ul li a.active::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
-            bottom: -5px;
-            left: 0;
-            border-radius: 2px;
-        }
-        .logo-img {
-    height: 50px;       /* Adjust to your design */
+.logo-img {
+    height: 50px;
     margin-right: 20px;
 }
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--turquoise);
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+    bottom: -5px;
+    left: 0;
+    border-radius: 2px;
+}
+
 
         /* Intro Hero Section */
         .destinations-hero {
