@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations Explore East Africa With VirtuQuest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --sand: #f7f3e9;
+            --sand-dark: #e8d8b6;
+            --turquoise: #1ca9c9;
+            --turquoise-dark: #0e8ea8;
+            --ocean-blue: #2a6b8a;
+            --sunshine: #ffb347;
+            --savannah: #b68d40;
+            --safari-brown: #8b4513;
+            --palm-green: #2d5a27;
+            --text-dark: #333;
+            --text-light: #555;
+            --luxury-gold: #d4af37;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--sand);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--ocean-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(28, 169, 201, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(28, 169, 201, 0.3);
+            background: linear-gradient(to right, var(--savannah), var(--turquoise-dark));
+        }
+        /* Price Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+thead th {
+    background-color: #0d6efd; /* change to your brand color */
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+tbody td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #eef4ff;
+}
+
+td[rowspan] {
+    font-weight: bold;
+    background-color: #f1f6ff;
+}
+
+/* Price emphasis */
+td:last-child {
+    font-weight: 600;
+    color: #198754;
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        padding: 8px 12px;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    tbody td::before {
+        font-weight: bold;
+        color: #555;
+    }
+
+    tbody td:nth-child(1)::before { content: "Country"; }
+    tbody td:nth-child(2)::before { content: "Destination"; }
+    tbody td:nth-child(3)::before { content: "Duration"; }
+    tbody td:nth-child(4)::before { content: "Price (USD)"; }
+}
+
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--ocean-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--sunshine);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--turquoise);
+        }
+
+        nav ul li a.active {
+            color: var(--turquoise);
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+            bottom: -5px;
+            left: 0;
+            border-radius: 2px;
+        }
+        .logo-img {
+    height: 50px;       /* Adjust to your design */
+    margin-right: 20px;
+}
+
+        /* Intro Hero Section */
+        .destinations-hero {
+            height: 70vh;
+            background: linear-gradient(rgba(42, 107, 138, 0.7), rgba(182, 141, 64, 0.6)), 
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .destinations-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23f7f3e9"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-divider {
+            font-size: 2.5rem;
+            color: var(--sunshine);
+            margin: 30px 0;
+        }
+
+        /* Floating Quick Navigation */
+        .quick-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            padding: 20px 10px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quick-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 10px 5px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            width: 70px;
+            text-align: center;
+        }
+
+        .quick-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--turquoise);
+        }
+
+        .quick-nav a:hover, .quick-nav a.active {
+            background-color: rgba(28, 169, 201, 0.1);
+            color: var(--turquoise-dark);
+        }
+
+        .quick-nav a span {
+            margin-top: 5px;
+        }
+         /* Hamburger button for mobile */
+.menu-btn {
+    display: none; /* hidden on large screens */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 1024px) {
+    .menu-btn {
+        display: block;
+    }
+
+    /* Hide regular nav links initially on mobile */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        background: white;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        z-index: 999;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+        /* Top Experiences Strip */
+        .experiences-strip {
+            background: linear-gradient(to right, var(--turquoise), var(--savannah));
+            padding: 25px 0;
+            margin-top: -1px;
+        }
+
+        .experiences-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .experience-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .experience-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--sunshine);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .experience-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Destination Sections */
+        .destinations-list {
+            background-color: white;
+        }
+
+        .destination-section {
+            margin-bottom: 100px;
+            scroll-margin-top: 120px;
+        }
+
+        .destination-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .destination-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-title {
+            font-size: 2.2rem;
+            color: var(--ocean-blue);
+            position: relative;
+            display: inline-block;
+        }
+
+        .destination-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--turquoise), var(--sunshine));
+            bottom: -10px;
+            left: 0;
+        }
+
+        .destination-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .destination-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* Image Slider */
+        .image-slider-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: white;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--ocean-blue);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background-color: white;
+        }
+
+        .slider-arrow.prev {
+            left: 15px;
+        }
+
+        .slider-arrow.next {
+            right: 15px;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--sand);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .info-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .info-item h4 {
+            color: var(--ocean-blue);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item p {
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .info-item i {
+            color: var(--turquoise);
+        }
+
+        /* Travel Tips Box */
+        .travel-tips {
+            background: linear-gradient(135deg, var(--sand) 0%, #e6f7ff 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 80px;
+            border-left: 5px solid var(--turquoise);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .travel-tips h3 {
+            color: var(--ocean-blue);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .travel-tips h3 i {
+            color: var(--sunshine);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-item h4 {
+            color: var(--savannah);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--sand);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "\201C";
+            font-size: 4rem;
+            color: var(--turquoise);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--ocean-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .testimonial-location {
+            color: var(--savannah);
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(42, 107, 138, 0.85), rgba(182, 141, 64, 0.8)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" opacity=".1" fill="%23ffffff"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ocean-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--sunshine);
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--sunshine);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .destination-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .quick-nav {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .destinations-hero {
+                height: 60vh;
+                margin-top: 70px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .destination-title {
+                font-size: 1.8rem;
+            }
+            
+            .experiences-container {
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .experience-item {
+                min-width: 120px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Hero Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                 <img src="images/VQTLion.png" alt="VirtuQuest Travels" class="logo-img">
+            VirtuQuest Travels
+            </div>
+            <nav>
+                <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="themed-holidays.html">Themed Holidays</a></li>
+                    <li><a href="corporate-holidays.html">Corporate Holidays</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="price-quote.html">Our prices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- Hero Section -->
+    <section class="destinations-hero">
+        <div class="container hero-content">
+            <h1>Luxury Travel Packages – Price List</h1>
+            <div class="hero-divider">
+                <i class="fas fa-compass"></i>
+            </div>
+            <p>Discover our carefully curated travel packages with transparent pricing, created to deliver comfort, quality, and memorable journeys.</p>
+        </div>
+    </section>
+    <table>
+    <thead>
+        <tr>
+            <th>Country of Origin</th>
+            <th>Destination</th>
+            <th>Duration</th>
+            <th>Cost (USD)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!-- Kenya -->
+        <tr>
+            <td rowspan="48">Kenya</td>
+            <td rowspan="4">Amboseli</td>
+            <td>1 Day Tour</td>
+            <td>55</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>220</td></tr>
+        <tr><td>5–7 Days Tour</td><td>385</td></tr>
+        <tr><td>7+ Days Tour</td><td>400</td></tr>
+
+        <tr>
+            <td rowspan="4">Diani</td>
+            <td>1 Day Tour</td>
+            <td>63</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>252</td></tr>
+        <tr><td>5–7 Days Tour</td><td>441</td></tr>
+        <tr><td>7+ Days Tour</td><td>504</td></tr>
+
+        <tr>
+            <td rowspan="4">Nanyuki</td>
+            <td>1 Day Tour</td>
+            <td>40</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>160</td></tr>
+        <tr><td>5–7 Days Tour</td><td>260</td></tr>
+        <tr><td>7+ Days Tour</td><td>280</td></tr>
+
+        <tr>
+            <td rowspan="4">Lake Elementeita</td>
+            <td>1 Day Tour</td>
+            <td>33</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>132</td></tr>
+        <tr><td>5–7 Days Tour</td><td>231</td></tr>
+        <tr><td>7+ Days Tour</td><td>260</td></tr>
+
+        <tr>
+            <td rowspan="4">Lake Nakuru</td>
+            <td>1 Day Tour</td>
+            <td>37</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>148</td></tr>
+        <tr><td>5–7 Days Tour</td><td>260</td></tr>
+        <tr><td>7+ Days Tour</td><td>280</td></tr>
+
+        <tr>
+            <td rowspan="4">Maasai Mara</td>
+            <td>1 Day Tour</td>
+            <td>55</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>220</td></tr>
+        <tr><td>5–7 Days Tour</td><td>385</td></tr>
+        <tr><td>7+ Days Tour</td><td>400</td></tr>
+
+        <tr>
+            <td rowspan="4">Mombasa</td>
+            <td>1 Day Tour</td>
+            <td>35</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>140</td></tr>
+        <tr><td>5–7 Days Tour</td><td>245</td></tr>
+        <tr><td>7+ Days Tour</td><td>260</td></tr>
+
+        <tr>
+            <td rowspan="4">Mt. Kenya</td>
+            <td>1 Day Tour</td>
+            <td>30</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>120</td></tr>
+        <tr><td>5–7 Days Tour</td><td>210</td></tr>
+        <tr><td>7+ Days Tour</td><td>230</td></tr>
+
+        <tr>
+            <td rowspan="4">Nairobi</td>
+            <td>1 Day Tour</td>
+            <td>25</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>100</td></tr>
+        <tr><td>5–7 Days Tour</td><td>175</td></tr>
+        <tr><td>7+ Days Tour</td><td>200</td></tr>
+
+        <tr>
+            <td rowspan="4">Naivasha</td>
+            <td>1 Day Tour</td>
+            <td>30</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>120</td></tr>
+        <tr><td>5–7 Days Tour</td><td>210</td></tr>
+        <tr><td>7+ Days Tour</td><td>230</td></tr>
+
+        <tr>
+            <td rowspan="4">Watamu</td>
+            <td>1 Day Tour</td>
+            <td>65</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>260</td></tr>
+        <tr><td>5–7 Days Tour</td><td>455</td></tr>
+        <tr><td>7+ Days Tour</td><td>470</td></tr>
+
+        <tr>
+            <td rowspan="4">Tsavo</td>
+            <td>1 Day Tour</td>
+            <td>60</td>
+        </tr>
+        <tr><td>2–4 Days Tour</td><td>240</td></tr>
+        <tr><td>5–7 Days Tour</td><td>420</td></tr>
+        <tr><td>7+ Days Tour</td><td>500</td></tr>
+
+        <!-- International Tours -->
+        <tr>
+            <td>Tanzania</td>
+            <td>Mt. Kilimanjaro</td>
+            <td>7 Days Tour</td>
+            <td>5350</td>
+        </tr>
+
+        <tr>
+            <td>Tanzania</td>
+            <td>Zanzibar</td>
+            <td>7 Days Tour</td>
+            <td>4500</td>
+        </tr>
+
+        <tr>
+            <td>Uganda</td>
+            <td>Various</td>
+            <td>7 Days Tour</td>
+            <td>2370</td>
+        </tr>
+
+        <tr>
+            <td>Mauritius</td>
+            <td>Various</td>
+            <td>7 Days Tour</td>
+            <td>5600</td>
+        </tr>
+
+        <tr>
+            <td>Seychelles</td>
+            <td>Various</td>
+            <td>7 Days Tour</td>
+            <td>5965</td>
+        </tr>
+
+        <tr>
+            <td>South Africa</td>
+            <td>Various</td>
+            <td>7 Days Tour</td>
+            <td>7120</td>
+        </tr>
+
+    </tbody>
+</table>
