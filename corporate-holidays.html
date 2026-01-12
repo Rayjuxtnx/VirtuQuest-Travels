@@ -8,196 +8,167 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
     <style>
         /* CSS Variables - Extended VirtuQuest Brand with Corporate Colors */
-        :root {
-            --sand: #f7f3e9;
-            --sand-dark: #e8d8b6;
-            --turquoise: #1ca9c9;
-            --turquoise-dark: #0e8ea8;
-            --ocean-blue: #2a6b8a;
-            --sunshine: #ffb347;
-            --savannah: #b68d40;
-            --safari-brown: #8b4513;
-            --palm-green: #2d5a27;
-            --text-dark: #333;
-            --text-light: #555;
-            
-            /* Corporate Accent Colors */
-            --navy: #0d2b4e;
-            --charcoal: #2c3e50;
-            --corporate-blue: #1e3a5f;
-            --light-gray: #f8f9fa;
-            --success-green: #28a745;
-            
-            --header-height: 80px;
-            --transition-speed: 0.4s;
-            --border-radius: 10px;
-            --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            --box-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--sand);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        /* Corporate Button Styles */
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(to right, var(--turquoise), var(--corporate-blue));
-            color: white;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: var(--box-shadow);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, var(--savannah), var(--navy));
-            transition: left 0.5s ease;
-            z-index: -1;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--box-shadow-hover);
-        }
-
-        .btn:hover::before {
-            left: 0;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--turquoise);
-            color: var(--turquoise);
-        }
-
-        .btn-outline:hover {
-            background: var(--turquoise);
-            color: white;
-        }
-
-        /* Header - Corporate Version */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all var(--transition-speed) ease;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            color: var(--ocean-blue);
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .logo i {
-            color: var(--sunshine);
-            margin-right: 10px;
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: color var(--transition-speed);
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: var(--turquoise);
-        }
-
-        nav ul li a.active {
-            color: var(--turquoise);
-        }
-
-        nav ul li a.active::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--turquoise), var(--corporate-blue));
-            bottom: -5px;
-            left: 0;
-            border-radius: 2px;
-        }
-        .logo-img {
-    height: 50px;       /* Adjust to your design */
-    margin-right: 20px;
+       :root {
+    --sand: #f7f3e9;
+    --sand-dark: #e8d8b6;
+    --turquoise: #1ca9c9;
+    --corporate-blue: #1e3a5f;
+    --sunshine: #ffb347;
+    --navy: #0d2b4e;
+    --text-dark: #333;
+    --header-height: 90px;
+    --transition-speed: 0.4s;
+    --border-radius: 10px;
+    --box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    --box-shadow-hover: 0 10px 30px rgba(0,0,0,0.12);
 }
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--sand);
+    overflow-x: hidden;
+}
+
+/* ===========================
+   HEADER - VIRTUQUEST
+=========================== */
+
+/* Fixed Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height, 90px); /* fallback 90px */
+    padding: 0 30px;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo */
+header .logo {
+    display: flex;
+    align-items: center;
+    color: var(--sunshine, #ffb347);
+    font-size: 1.8rem;
+    font-weight: 700;
+    gap: 10px;
+}
+
+header .logo-img {
+    height: 50px;
+    width: auto;
+}
+
+/* Navigation - Desktop */
+header nav {
+    position: relative;
+}
+
+header nav ul.nav-links {
+    display: flex; /* SHOW on desktop */
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: color 0.3s, background 0.3s;
+}
+
+header nav ul.nav-links li a:hover,
+header nav ul.nav-links li a.active {
+    color: var(--turquoise, #1ca9c9);
+    background: rgba(255,255,255,0.1);
+}
+
+/* Mobile Menu Button */
 .menu-btn {
-    margin-left: 30px; /* Adjust the number to increase/decrease spacing */
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Mobile Navigation */
+@media (max-width: 1024px) {
+    /* Hide desktop links */
+    header nav ul.nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height, 90px);
+        right: 30px;
+        background: #000;
+        border-radius: 8px;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 999;
+    }
+
+    /* Show when active */
+    header nav ul.nav-links.show {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* Push page content below header */
+body {
+    padding-top: var(--header-height, 90px);
+}
+
+/* ===========================
+   GENERAL LINKS (body content)
+=========================== */
+a {
+    color: var(--turquoise, #1ca9c9); /* fallback if undefined */
+    text-decoration: none;
+    transition: color 0.3s, background 0.3s;
+}
+
+a:hover {
+    color: var(--sunshine, #ffb347);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .menu-btn { display: block; }
+    header nav ul { display: none; }
+    .nav-links { width: 200px; }
 }
 
 /* FORCE header to stay visible and solid black */
