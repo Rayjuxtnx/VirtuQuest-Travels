@@ -267,19 +267,23 @@ header .menu-btn {
     }
 }
 
-        /* Intro Hero Section */
         .destinations-hero {
-            height: 70vh;
-            background: linear-gradient(rgba(42, 107, 138, 0.7), rgba(182, 141, 64, 0.6)), 
-                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            margin-top: 80px;
-        }
+    min-height: 100vh; /* make hero cover full viewport */
+    box-sizing: border-box; /* include padding in height */
+    padding-top: 90px; /* space for fixed header */
+    padding-bottom: 40px; /* extra bottom padding so text never overflows */
+    background: linear-gradient(rgba(42, 107, 138, 0.7), rgba(182, 141, 64, 0.6)),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center text */
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
 
         .destinations-hero::before {
             content: '';
@@ -321,6 +325,10 @@ header .menu-btn {
             color: var(--sunshine);
             margin: 30px 0;
         }
+.destinations-hero {
+    transform: translateY(100px);
+}
+
 
         /* Floating Quick Navigation */
         .quick-nav {
